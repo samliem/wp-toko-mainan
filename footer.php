@@ -16,12 +16,8 @@
 	<footer id="colophon" role="contentinfo">
             <div class="footer-top">
                 <div class="site-wrap">
-                    <div class="store-name">
-                        <?php if( !empty($jrl_theme_options['store']) ) {
-                            echo '<h3>' . $jrl_theme_options['store'] . '</h3>';
-                            } else {
-                                echo  '<h3>' .  bloginfo('name') . '</h3>'; 
-                        } ?>
+                    <div class="phone-store">Tel.: <?php echo $jrl_theme_options['phone']; ?>
+                        
                     </div><!-- resto-name
                      --><div class="store-notice">
                          <?php 
@@ -32,15 +28,11 @@
                     </div><!-- store-container
                      --><div class="social-container">
                         <?php if( !empty($jrl_theme_options['facebook']) ) : ?>
-                            <a href="<?php echo $jrl_theme_options['facebook'];?>" class="social"> 
-                                <img class="social-icon" src="<?php echo get_stylesheet_directory_uri() . '/images/facebook.png';?>" />
-                            </a>
+                            <a href="<?php echo $jrl_theme_options['facebook'];?>" class="social facebook" alt="follow my facebook"></a>
                         <?php endif; 
 
                         if( !empty($jrl_theme_options['twitter']) ) : ?>
-                            <a href="<?php echo $jrl_theme_options['twitter'];?>" class="social"> 
-                                <img class="social-icon" src="<?php echo get_stylesheet_directory_uri() . '/images/twitter.png';?>" />
-                            </a>
+                            <a href="<?php echo $jrl_theme_options['twitter'];?>" class="social twitter" alt="follow my twitter"></a>
                         <?php endif; ?>
                     </div><!-- social-container -->
                 </div><!-- site-wrap -->

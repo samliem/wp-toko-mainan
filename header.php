@@ -72,13 +72,16 @@
                     </h2>
                 </hgroup>  
 
+                <!-- Search Box -->
                 <div id="search-product">
                     <?php get_product_search_form(); ?>
                 </div>
                 
-                <div id="phone">
-                    <div id="phone-number">Phone</div>               
-                </div>
+                <!-- Phone Number -->
+                <?php if( !empty($jrl_theme_options['phone']) ) : ?>
+                    <div id="phone"><?php echo $jrl_theme_options['phone']; ?></div>
+                <?php endif; ?>
+                    
             </div><!-- .site-wrap -->
             
             <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -109,19 +112,30 @@
                         global $post; 
                         echo $post->post_title; 
                     }
+                    
+                    $queried_object = get_queried_object();
+                       
+                    switch ($queried_object->taxonomy) {
+                        case 'category':
+                                  printf( __( 'Category Archives: %s', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                        case 'post_tag':
+                            printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                        case 'product_cat':
+                            printf( __( 'Product Category : %s', 'woocommerce' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                        case 'product_tag':
+                            printf( __( 'Product Tag : %s', 'woocommerce' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                        case 'promo_cat':
+                            printf( __( 'Promotion Category %s: ', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                        case 'promo_tag':
+                            printf( __( 'Promotion Tag : %s', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
+                            break;
+                    }
 
-                    if( is_tax('product_cat') ) 
-                        _e( 'Product Category : ', 'woocommerce' ) . woocommerce_page_title();
-                    
-                    if( is_tax('product_Tag') ) 
-                        _e( 'Product Tag : ', 'woocommerce' ) . woocommerce_page_title();
-                    
-                    if( is_category() ) 
-                        printf( __( 'Category Archives: %s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-                    
-                    if( is_tag() )
-                        printf( __( 'Tag Archives: %s', 'twentytwelve' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-                    
                     if( is_home() ) {
                         $page_id = get_option( 'page_for_posts' );
                         echo get_the_title( $page_id );

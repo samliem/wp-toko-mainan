@@ -9,19 +9,14 @@ jQuery(document).ready(function($){
         e.preventDefault();
     });
     
-    $('a.woocommerce-main-image, .thumbnails a.zoom').click(function(e){
-        var imgSrc = $(this).attr('href');
-        var imgWidth = $(this).attr('width');
-        var imgHeight = $(this).attr('height');
-        
-        showLightbox(imgSrc, imgWidth, imgHeight);
-        
-        e.preventDefault();
-    }); 
-    
     $('a#lightbox-close').click(function(e){
         $('#mask').hide();
         e.preventDefault();
+    });
+    
+    $(window).resize(function() {
+        $('a#lightbox-close').click();
+        $('a.lightbox').click();
     });
     
     function showLightbox(imgSrc, width, height) {

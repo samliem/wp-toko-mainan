@@ -290,9 +290,17 @@ add_filter( 'woocommerce_show_page_title', 'hide_product_category_title' );
 
 /*********************************************************************
  *************** Promo Custom Post Type and Taxonomy ****************/
+
+/**
+ * Register promo post type and promo taxonomy
+ * 
+ * @return type
+ */
 function jrl_register_promo_post_type() {
     if( post_type_exists( 'promo' ) )
         return;
+    
+    global $wp_rewrite;
             
     //only role Editor and above that can use custom post type
     $show_in_menu = current_user_can( 'publish_pages' ) ? true : false;
@@ -365,6 +373,8 @@ function jrl_register_promo_post_type() {
                                         'hierarchical'  => true
                                    )
         ));
+    
+    $wp_rewrite->flush_rules();
 
     $tax_tag_label = 
         array(
@@ -398,5 +408,11 @@ function jrl_register_promo_post_type() {
 
 }
 add_action( 'init', 'jrl_register_promo_post_type' );
+
+function add_thumbnail_script($post) {
+    if( $post->post_type == 'promo' )
+        wp_enqueue_script('thumbnail', get_stylesheet_directory_uri() . '/js/thumbnail-lightbox.js', array('jquery'), false, true);
+}
+add_action( 'the_post', 'add_thumbnail_script');
 
 ?>
