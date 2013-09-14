@@ -1,0 +1,192 @@
+﻿#home-slider {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#home-slider {
+    /*float: left;*/
+    overflow: hidden;
+}
+
+#home-slider .slide-nav {
+    position: absolute;
+    top: 50%;
+    display: none;
+}
+
+#home-slider .slide-nav a {
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+#home-slider .right.slide-nav {
+    right: 28px;
+    right: 2rem;
+    
+}
+
+#home-slider .right.slide-nav a {
+    background: url(../images/arrows.png) no-repeat 100% 0;
+}
+
+#home-slider .left.slide-nav { 
+    left: 28px;
+    left: 2rem;
+}
+
+#home-slider .left.slide-nav a {
+    background: url(../images/arrows.png) no-repeat left top;
+}
+
+ul#slider-list {
+    position: relative;
+    list-style: none;
+}
+
+li.slide-item {
+    width: 100%;
+    float: left;
+}
+
+li.slide-item a {
+    display: block;
+    position: relative;
+}
+
+#home-slider img {
+    width: 100%;
+}
+
+#home-slider-inner img {
+    box-shadow: 0 0 10px 0 #777, 0 0 0 1px #888;
+}
+
+.slider-info {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+}
+
+.slider-info {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.slide-post-excerpt {
+    padding-top: 5px;
+}
+
+.slide-post-title, .slide-post-excerpt {
+    text-align: center;
+}
+
+.slide-post-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.slide-post-excerpt {
+    font-size: 90%;
+}
+
+/*******************************************************
+***************** Slider Navigation *******************/
+
+#home-slider #slide-counter {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+}
+
+#inner-slide-counter {
+    display: inline-block;
+    padding: 10px;
+}
+
+#inner-slide-counter {
+    text-align: center;
+    
+    
+}
+
+a.slide-counter {
+    display: inline-block;
+    padding: 5px 7px;
+    border: solid 1px #E8E8DD;
+    background: rgba(232, 232, 221, 0.7); /*#E8E8DD*/;
+    color: #2E231F;
+    text-decoration: none;
+}
+
+a.slide-counter:hover,
+a.selected-slide {
+    border: solid 1px #2E231F;
+    background: rgba(46, 35, 31, 0.7);/*#2E231F;*/
+    color: #E8E8DD;
+}
+
+/*******************************************************
+************ Callout untuk Slide Counter **************/
+
+.callout {
+    position: absolute;
+    width: 200px;
+    margin: 10px 0;
+    padding: 5px 10px;
+    z-index: 1000;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    background: #f2f2f2; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: -moz-linear-gradient(top,  #faf8f5 60%, #f4f1eb 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#faf8f5), color-stop(100%,#f4f1eb)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #faf8f5 60%,#f4f1eb 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #faf8f5 60%,#f4f1eb 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #faf8f5 60%,#f4f1eb 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #faf8f5 60%,#f4f1eb 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-8 */
+}
+
+.callout-content {
+    font-size: 0.7em;
+}
+
+.callout .notch {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    border-top: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #faf8f5;
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    /* ie6 height fix */
+    font-size: 0;
+    line-height: 0;
+    /* ie6 transparent fix */
+    _border-right-color: pink;
+    _border-left-color: pink;
+    _filter: chroma(color=pink);
+}
+
+.border-callout {
+    border: 1px solid #DDD;
+    padding: 10px 12px;
+}
+
+.border-callout .border-notch {
+    border-bottom-color: #DDD;
+    top: -11px;
+}
+
+#header-border {
+    height: 0;
+}

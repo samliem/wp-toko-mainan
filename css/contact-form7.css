@@ -1,0 +1,66 @@
+#contact_form7 {
+    border: solid 1px #DDD; 
+    background-color: #F1F1F1;
+    margin-bottom: 10px;
+} 
+
+.wpcf7-captchac {
+    box-shadow: none !important;
+}
+
+table#contact_form {
+    width: 100%;
+    border: solid 1px #FFF;
+    border-collapse: collapse;
+}
+
+table#contact_form tr {
+    border: solid 1px #DDD;
+}
+
+table#contact_form tr:first-child {
+    border-top: solid 1px #FFF;
+}
+
+table#contact_form tr:last-child {
+    border-bottom: solid 1px #EDEDED;
+}
+
+table#contact_form td.label {
+    width: 30%;
+    border-left: solid 1px #FFF;
+}
+
+table#contact_form td.input {
+    border-right: solid 1px #FFF;
+}
+
+table#contact_form .textarea {
+    border-left: solid 1px #FFF;
+    border-right: solid 1px #FFF;
+}
+
+table#contact_form .input {
+    background-color: #FFF;
+}
+
+table#contact_form td {
+    padding: 5px;
+}
+
+table#contact_form td input {
+    padding: 2px;
+    border: solid 1px #BBB;
+}
+
+table#contact_form .wpcf7-textarea {
+    padding: 5px;
+    width: 98%;
+    border: solid 1px #BBB;
+}
+
+table#contact_form span.required {
+    font-size: 0.8em;
+    font-style: italic;
+    font-weight: bold;
+}

@@ -1,0 +1,245 @@
+/* 
+    Document   : theme-options
+    Created on : Apr 22, 2013, 1:49:21 PM
+    Author     : Samuel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+ul#tabs {
+    position: relative;
+    top: 1px;
+    left: 10px;
+    margin: 0;
+    padding-top: 2em;
+    list-style: none;
+    text-indent: 0;
+    font-size: 140%;
+}
+
+ul#tabs li {
+    margin: 0;
+    display: inline-block;
+    border: solid 1px #CCC;
+    background: #EEE;
+    text-shadow: 0 2px #FFF;
+    
+}
+
+ul#tabs li.tab-active {
+    border-bottom-color: #FFF;
+    background: #FFF;
+}
+
+ul#tabs li:not(:first-child) {
+    margin-left: -1px;
+}
+
+ul#tabs li a {
+    display: block;
+    text-decoration: none;
+    line-height: 1.7em;
+    padding: 0 0.5em;
+    color: #444;
+}
+
+ul#tabs li a:focus {
+    /* untuk menghilangkan dotted 1 px border pada waktu get focus. Ini hanya terjadi di FF */
+    outline: 0; 
+}
+
+#tab-content {
+    border: solid 1px #CCC;
+    min-height: 20px;
+    padding: 10px;
+}
+
+#tab-content form {
+    /*display: none;*/
+}
+
+form#setting-general .simpan,
+form#setting-social .simpan {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#logo-preview img {
+    max-width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+#sliders {
+    margin-top: 10px;
+}
+
+form#setting-slider .slider {
+    border: solid 1px #EEE;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.slider-img {
+    padding-right: 10px;
+}
+
+.slider-thumbnail img {
+    width: 150px;
+    min-height: 20px;
+}
+
+.slider-thumbnail img {
+    border: solid 5px #F2F2F2;    
+}
+
+.slider-thumbnail-no-image img {
+    border: solid 5px red;
+}
+
+.slider img {
+    width: 100%;
+}
+
+.slider input[type="text"] {
+    size: 150px;
+    border: none;
+    border-bottom: dotted 1px #444;
+    padding: 0;
+}
+
+.slider label {
+    display: inline-block;
+    line-height: 2em;
+    width: 50px;
+    text-align: right;
+}
+
+.slider-add-delete {
+    width: 100%;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.slider .tb-cell {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.slider .slider-img.tb-cell {
+    width: 175px;
+}
+
+.slider-no {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #F2F2F2;
+    border: solid 1px #EEE;
+    font-weight: bold;
+    text-shadow: 0 1px #FFF;
+}
+
+.button-slider {
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+}
+
+form#setting-slider .simpan {
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+    
+}
+
+.template {
+    display: none;
+}
+
+/*********** CUSTOM BUTTON ************/
+
+.jrl-button
+{        
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+    background-image: -webkit-linear-gradient(top, #eee, #ccc);
+    background-image: -moz-linear-gradient(top, #eee, #ccc);
+    background-image: -ms-linear-gradient(top, #eee, #ccc);
+    background-image: -o-linear-gradient(top, #eee, #ccc);
+    background-image: linear-gradient(top, #eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    padding: 0 1.5em;
+    margin: 0.5em;
+    font: bold 1em/2em Arial, Helvetica;
+    text-decoration: none;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    -moz-border-radius: .2em;
+    -webkit-border-radius: .2em;
+    border-radius: .2em;
+    -moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.jrl-button:hover
+{
+    background-color: #ddd;        
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+    background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+    background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+    background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+    background-image: -o-linear-gradient(top, #fafafa, #ddd);
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+
+.jrl-button:active
+{
+    -moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    -webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}   
+
+.jrl-button:focus
+{
+    /*outline: 0;
+    background: #fafafa;*/  
+}      
+
+.jrl-button:before
+{
+    background: #ccc;
+    background: rgba(0,0,0,.1);
+    float: left;        
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    -moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    -webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    -moz-border-radius: .15em 0 0 .15em;
+    -webkit-border-radius: .15em 0 0 .15em;
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;        
+}
+
+.add.jrl-button:before
+{
+    content: "\271A";
+}
+
+.delete.jrl-button:before
+{
+    content: "\2718";        
+}
