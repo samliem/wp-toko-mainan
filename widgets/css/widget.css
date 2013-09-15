@@ -1,0 +1,52 @@
+/* 
+    Document   : widget
+    Created on : Jun 11, 2013, 4:00:49 PM
+    Author     : Samuel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/**********************************************
+**************** Recent Promo ****************/
+
+ul.list-promo li {
+    position: relative;
+}
+
+ul.list-promo .promo-thumbnail {
+    width: 32px;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    z-index: 100;
+}
+
+ul.list-promo h2 {
+    display: inline-block;
+    vertical-align: top;
+}
+
+ul.list-promo li > a {
+    display: block;
+    line-height: 1.3em;
+    margin-right: 38px;
+}
+
+ul.list-promo li:not(:last-child) {
+    padding-bottom: 5px;
+}
+
+/**********************************************
+**************** Banner Promo ****************/
+
+#banner-promo img {
+    display: block;
+    margin: 0 auto;
+}
+
+/**********************************************
+*********** List Kategori Promosi ************/
+
+.jrl-promo-categories li {
+    list-style: none;
+}

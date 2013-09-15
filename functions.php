@@ -409,10 +409,38 @@ function jrl_register_promo_post_type() {
 }
 add_action( 'init', 'jrl_register_promo_post_type' );
 
+/**
+ * Insert lightbox script for promo post type thumbnail
+ * @param type $post
+ */
 function add_thumbnail_script($post) {
     if( $post->post_type == 'promo' )
         wp_enqueue_script('thumbnail', get_stylesheet_directory_uri() . '/js/thumbnail-lightbox.js', array('jquery'), false, true);
 }
 add_action( 'the_post', 'add_thumbnail_script');
+
+/*********************************************************************
+*************************** Custom Widget ***************************/    
+
+/**
+ * Register widget regarding promo post type and taxonomy
+ * 
+ */
+function jrl_custom_widget() {
+    wp_enqueue_style('widget-style', get_stylesheet_directory_uri() . '/widgets/css/widget.css');
+        
+    //require_once "widgets/ym.php";
+    require_once "widgets/promo-banner.php";
+    require_once "widgets/recent-promo.php";
+    require_once "widgets/promo-categories.php";
+    require_once "widgets/post-promo-categories.php";
+        
+    //register_widget('jrl_YM_Widget');
+    register_widget('jrl_Banner_Promo');
+    register_widget('jrl_Recent_Promo');
+    register_widget('jrl_Promo_Categories');
+    register_widget('jrl_Post_Promo_Categories');
+}
+add_action('widgets_init', 'jrl_custom_widget');
 
 ?>
