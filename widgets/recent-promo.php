@@ -62,7 +62,7 @@ class jrl_Recent_Promo extends WP_Widget {
         $args = 
             array(
                 'posts_per_page'    => $instance['max_posts'],
-                'post_type'         => 'promosi',
+                'post_type'         => 'promo',
                 'post_status'       => 'publish',
             );
         

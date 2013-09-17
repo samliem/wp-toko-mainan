@@ -12,8 +12,18 @@ $GLOBALS['jrl_theme_options'] = get_option( THEME_OPTION );    //global variable
  */
 function jrl_footer_sidebar() {
     register_sidebar( array(
-        'name'          => 'Footer Widget Area Center',
+        'name'          => 'Footer Widget Area Left',
         'id'            => 'sidebar-4',
+        'description'   => 'Digunakan untuk meletakkan widget di dalam footer di bagian kiri. Disarankan hanya 1 buah widget',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    
+    register_sidebar( array(
+        'name'          => 'Footer Widget Area Center',
+        'id'            => 'sidebar-5',
         'description'   => 'Digunakan untuk meletakkan widget di dalam footer di bagian tengah. Disarankan hanya 1 buah widget',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -23,7 +33,7 @@ function jrl_footer_sidebar() {
         
     register_sidebar( array(
         'name'          => 'Footer Widget Area Right',
-        'id'            => 'sidebar-5',
+        'id'            => 'sidebar-6',
         'description'   => 'Digunakan untuk meletakkan widget di dalam footer di bagian kanan. Disarankan hanya 1 buah widget',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -55,6 +65,59 @@ function jrl_back_to_top() { ?>
     <a id="back-to-top" href="" title="back to top">^</a>
 <?php } 
 add_action('jrl_before_header', 'jrl_back_to_top');
+
+function pure_chat_script_option_page() {
+    add_options_page( 'Add Pure Chat Script', 'Pure Chat Script', 'manage_options', 'pure_chat_option', 'add_pure_chat_script' );
+}
+add_action( 'admin_menu', 'pure_chat_script_option_page' );
+
+function add_pure_chat_script() { 
+    if( !current_user_can('manage_options') ) 
+        wp_die( 'You do not have sufficient permissions to access this page!' ); ?>
+    
+    <div class="wrap">
+        <?php screen_icon(); ?>
+        <h2>Add Pure Chat Script</h2 >
+        <form action="options.php" method="post">
+            <?php settings_fields( 'pure_chat_script' ); ?>
+            <?php $script = get_option( 'pure_chat_script', true ); ?>
+            <p>
+                <label for="pure-chat-script">Entry the Pure Chat script in the following box :</label><br />
+                <textarea id="pure-chat-script" name="pure_chat_script"><?php echo $script; ?></textarea>
+            </p>
+            <?php //do_settings_sections( 'pure_chat_option' ); ?>
+            <input type="submit" name="submit" class="button button-primary" value="Save" />
+        </form>
+    </div>
+<?php }
+
+function pure_chat_opt_init() {
+    register_setting( 'pure_chat_script', 'pure_chat_script' );
+    //add_settings_section( 'pure_chat_section', 'Pure Chat Setting', 'setting_text_section', 'pure_chat_option' );
+    //add_settings_field( 'pure-chat-script-field', 'Script', 'setting_input', 'pure_chat_option', 'pure_chat_section' );
+}
+add_action( 'admin_init', 'pure_chat_opt_init' );
+
+function setting_text_section() {
+    echo '<p>Enter the script here</p>';
+}
+
+function setting_input() {
+    $script = get_option( 'pure_chat_script', true );
+    echo '<textarea id="pure_chat_input" name="pure_chat_script" value="' . $script . '"></textarea>';
+}
+
+/**
+ * Insert script of Pure Chat
+ */
+function insert_pure_chat_script() { 
+    if( !is_admin() ) {
+        $option = get_option( 'pure_chat_script', true );
+        if( $option ) 
+            echo $option;
+    }
+}
+add_action( 'wp_footer', 'insert_pure_chat_script', 10 );
 
 /*************************************************************
 *********************** head section ************************/
@@ -115,7 +178,7 @@ function jrl_theme_script() {
   wp_enqueue_style( 'contact-form7-style', 
                 get_stylesheet_directory_uri() . '/css/contact-form7.css' );
 }
-add_action( 'wp_head', 'jrl_theme_script' );
+add_action( 'wp_head', 'jrl_theme_script', 10 );
 
 /*************************************************************
 *********************** Navigation **************************/
@@ -127,21 +190,21 @@ add_action( 'wp_head', 'jrl_theme_script' );
  * @param type $args
  * @return type
  */
-function add_menu_parent_class( $sorted_menu_items, $args ) {
+function add_menu_parent_class( $items ) {
     
     $parent_items = array();
-    
-    foreach( $sorted_menu_items as $item) {
-        if( $item->menu_item_parent != '0')
+    foreach( $items as $item) {
+        if( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
             $parent_items[] = $item->menu_item_parent;
+        }
     }
-    
-    foreach ( $sorted_menu_items as $item) {
+
+    foreach ( $items as $item) {
         if( in_array($item->ID, $parent_items) ) 
             $item->classes[] = 'menu-parent';   
     }
     
-    return $sorted_menu_items;
+    return $items;
 
 }
 add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class', 10, 2 );
@@ -223,7 +286,7 @@ add_action( 'save_post', 'save_product_promo' );
  * @return void
  */
 function webtoko_add_admin_css() {
-    wp_enqueue_style( 'admin-css', get_stylesheet_directory_uri() . '/admin.css' );
+    wp_enqueue_style( 'admin-css', get_stylesheet_directory_uri() . '/css/admin.css' );
 }
 add_action( 'admin_init', 'webtoko_add_admin_css' );
 
@@ -282,11 +345,44 @@ function remove_product_title() {
 }
 add_action( 'after_setup_theme', 'remove_product_title' );
 
+/**
+ * Menyembunyikan product title
+ * 
+ * @param boolean $is_show
+ * @return boolean
+ */
 function hide_product_category_title($is_show) {
     $is_show = false;
     return $is_show;
 }
 add_filter( 'woocommerce_show_page_title', 'hide_product_category_title' );
+
+/**
+ * Set max. product per page
+ * 
+ * @global type $jrl_theme_options
+ */
+function set_wc_max_product_page() {
+    global $jrl_theme_options;
+    if( !empty($jrl_theme_options['max_product_page']) ) {
+        $max_product = $jrl_theme_options['max_product_page'];
+        add_filter( 'loop_shop_per_page', create_function( "$cols", "return $max_product;" ), 20 );
+    }
+}
+add_action('init', 'set_wc_max_product_page');
+
+/**
+ * Display single product promo
+ */
+function display_product_promo() {
+    $product_promo = get_post_meta( get_the_ID(), '_product_promo', true );
+    if( $product_promo ) : ?>
+        <div class="jrl-product-promo">
+            <?php echo $product_promo; ?>
+        </div>
+    <?php endif;
+}
+add_action( 'woocommerce_after_single_product_summary', 'display_product_promo', 5 );
 
 /*********************************************************************
  *************** Promo Custom Post Type and Taxonomy ****************/
@@ -434,12 +530,14 @@ function jrl_custom_widget() {
     require_once "widgets/recent-promo.php";
     require_once "widgets/promo-categories.php";
     require_once "widgets/post-promo-categories.php";
+    require_once "widgets/store-info.php";
         
     //register_widget('jrl_YM_Widget');
     register_widget('jrl_Banner_Promo');
     register_widget('jrl_Recent_Promo');
     register_widget('jrl_Promo_Categories');
     register_widget('jrl_Post_Promo_Categories');
+    register_widget('jrl_Store_Info');
 }
 add_action('widgets_init', 'jrl_custom_widget');
 

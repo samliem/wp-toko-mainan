@@ -566,10 +566,6 @@ footer .widget h3 {
     text-shadow: none; 
 }
 
-.store-info > h3 > span {
-    color: #FE6635;
-}
-
 /*****************************************************
 ********************** FOOTER ***********************/
 
@@ -650,17 +646,12 @@ footer[role="contentinfo"] a.social:active {
 }
 
 .phone-store {
-    /*font-family: 'league_gothicregular', 'Didact Gothic', Garamond, Tahoma, sans-serif;
-    font-size: 150%;*/
     line-height: initial;
-    /*text-transform: uppercase;*/
     font-weight: normal;
-    /*letter-spacing: 0.1em;*/
 }
 
 .site-info > div {
     line-height: 1.3em;
-    
 }
 
 #copyright {
@@ -758,6 +749,14 @@ body.woocommerce-page span.onsale {
     background: none;
 }
 
+.jrl-product-promo {
+    clear: both;
+    border-top: solid 1px #EEE;
+    border-bottom: solid 1px #EEE;
+    margin-bottom: 24px;
+    padding: 14px 0;
+}
+
 /* Overwrite Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
     .site-wrap {
@@ -812,21 +811,16 @@ body.woocommerce-page span.onsale {
     .footer-top .store-notice { width: 60%; }
     .footer-top .social-container { width: 20%; }
     
-    footer .store-info, 
     footer .widget-footer {
         display: inline-block;
         vertical-align: top;
     }
        
     footer .widget-footer {
-        width: 30%;
+        width: 28%;
         margin-left: 5%;
     }
-    
-    footer .store-info {
-        width: 30%;
-    }
-    
+     
     .widget-footer-container {
         padding: 0;
     }

@@ -99,8 +99,9 @@
         
         <?php if( is_front_page() ) : ?>
             <div id="ad-banner-container">
-                <div id="ad-banner"></div>
-
+                <div id="ad-banner">
+                    <img src="<?php echo get_stylesheet_directory_uri(). '/images/728x90.gif'; ?>" >
+                </div>
             </div>
         <?php endif; ?>
         

@@ -24,6 +24,7 @@ ul.list-promo .promo-thumbnail {
 ul.list-promo h2 {
     display: inline-block;
     vertical-align: top;
+    color: #FF6E00;
 }
 
 ul.list-promo li > a {

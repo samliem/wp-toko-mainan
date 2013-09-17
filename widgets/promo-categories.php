@@ -38,7 +38,7 @@ class jrl_Promo_Categories extends WP_Widget {
         $title = apply_filters('jrl_promo_categories', $instance['title']);
         if( !empty($title) ) echo $before_title . $title . $after_title;
         
-        $args = array('show_count'=> 1, 'title_li'=> '', 'taxonomy'=> 'kategori-promosi');
+        $args = array('show_count'=> 1, 'title_li'=> '', 'taxonomy'=> 'promo_cat');
         echo '<ul>';
         wp_list_categories($args);
         echo '</ul>';

@@ -21,7 +21,7 @@ class jrl_Post_Promo_Categories extends WP_Widget {
         </p>
         <p>
             <?php
-                $categories = get_terms('kategori-promosi');
+                $categories = get_terms('promo_cat');
                 //var_dump($categories);
                 foreach($categories as $category) : ?>
                     <div>
@@ -56,10 +56,10 @@ class jrl_Post_Promo_Categories extends WP_Widget {
         
         if( is_array($instance['category']) ) : 
             $args = array(
-                'post_type' => 'promosi',
+                'post_type' => 'promo',
                 'tax_query' => array(
                             array(
-                                'taxonomy'  => 'kategori-promosi',
+                                'taxonomy'  => 'promo_cat',
                                 'field'     => 'id',
                                 'terms'     => $instance['category']
                             )

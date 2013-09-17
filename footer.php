@@ -39,44 +39,19 @@
             </div><!-- footer-top -->
             <div class="site-wrap">
                 <div class="widget-footer-container">
-                <div class="store-info widget">
-                    <h3>
-                        <?php echo apply_filters( 'informasi_alamat', '<span>Informasi</span>&nbsp; Alamat' ); ?>
-                    </h3>
-                    <?php
-                    if( !empty($jrl_theme_options['address1']) ) {
-                        echo '<div>' . $jrl_theme_options['address1'] . '</div>';
-                    }
-
-                    if( !empty($jrl_theme_options['address2']) ) {
-                        echo '<div>' . $jrl_theme_options['address2'] . '</div>';
-                    }
-
-                    if( !empty($jrl_theme_options['address3']) ) {
-                        echo '<div>' . $jrl_theme_options['address3'] . '</div>';
-                    }
-                    
-                    if( !empty($jrl_theme_options['phone']) ) {
-                        echo '<div> Phone : ' . $jrl_theme_options['phone'] . '</div>';
-                    }
-                    
-                    if( !empty($jrl_theme_options['fax']) ) {
-                        echo '<div> Fax. : ' . $jrl_theme_options['fax'] . '</div>';
-                    }
-                    
-                    if( !empty($jrl_theme_options['bbm']) ) {
-                        echo '<div>Pin BB : ' . $jrl_theme_options['bbm']. '</div>';
-                    } 
-                    ?>
-                </div><!-- store-info 
-                --><div class="widget-footer">
+                <div class="widget-footer">
                     <?php if( function_exists('dynamic_sidebar') && is_active_sidebar('sidebar-4') ) : 
                         dynamic_sidebar('sidebar-4'); 
                     endif; ?>
-                </div><!-- widget-footer
+                </div><!-- store-info 
                 --><div class="widget-footer">
                     <?php if( function_exists('dynamic_sidebar') && is_active_sidebar('sidebar-5') ) : 
                         dynamic_sidebar('sidebar-5'); 
+                    endif; ?>
+                </div><!-- widget-footer
+                --><div class="widget-footer">
+                    <?php if( function_exists('dynamic_sidebar') && is_active_sidebar('sidebar-6') ) : 
+                        dynamic_sidebar('sidebar-6'); 
                     endif; ?>
                 </div><!-- widget-footer -->
                 
@@ -92,5 +67,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-</body>
+
+    </body>
 </html>
