@@ -85,6 +85,38 @@
                 </div>
             </td>
         </tr>
+        <!-- -->
+        <tr valign="top">
+            <th scope="row">Home Banner</th>
+            <td>
+                <input type="hidden" id="home-banner" name="jrl_theme_options[banner]"
+                    value="<?php echo esc_url($jrl_theme_options['banner']); ?>" />
+                <input type="button" id="upload-banner-button" class="button-highlighted" 
+                    value="Upload Banner" />
+                <span class="description">
+                    Klik tombol <strong>Upload Banner</strong> untuk upload banner. Disarankan ukuran
+                    banner nya adalah 729px x 60px
+                </span>
+            </td>
+        </tr>
+        <tr class="row-image-logo" valign="top">
+            <th scope="row">Preview Home Banner</th>
+            <td>
+                <div id="banner-preview">
+                    <?php $has_banner = ( '' != $jrl_theme_options['banner'] ) ? true : false; ?>
+                    <img src="<?php echo esc_url($jrl_theme_options['banner']); ?>" 
+                         <?php if( !$has_banner ) echo 'class="hide"'; ?> />
+                    <span class="description <?php if( $has_banner ) echo 'hide'; ?>">
+                        Tidak ada banner
+                    </span>
+                    <div id='banner-delete' <?php if( !$has_banner ) echo 'class="hide"';?>>
+                        <input type='button' id='delete-banner-button' value='Hapus Banner'
+                            class='button-secondary' />
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <!-- -->
         <tr valign="top">
             <th scope="row">Post Content</th>
             <td>

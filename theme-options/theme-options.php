@@ -49,6 +49,12 @@ function jrl_theme_options_validate($options) {
         }
     }
     
+    if( isset($options['banner']) ) {
+        if( !empty($options['banner']) ) {
+            $options['banner'] = esc_url( $options['banner'] );
+        }
+    }
+    
     if( isset($options['slider_img']) ) {
         for( $i=0; $i<count($options['slider_img']); $i++ ) {
             if( empty($options['slider_img'][$i]) ) {
@@ -162,7 +168,7 @@ function replace_thickbox_text($translated_text, $text) {
         if ( $referer != '' ) {
             switch($_COOKIE['jrl_theme_tab']) {
                 case 'general':
-                    return 'Gunakan gambar ini sebagai logo/favicon';
+                    return 'Gunakan gambar ini sebagai logo/favicon/banner';
                 case 'slider':
                     return 'Gunakan gambar ini untuk slide';
                 case 'social':

@@ -51,3 +51,21 @@ ul.list-promo li:not(:last-child) {
 .jrl-promo-categories li {
     list-style: none;
 }
+
+#promo-tag-cloud li { 
+    display: inline-block;
+    border: solid 1px #AAA;
+    margin: 5px 5px 0 0; 
+}
+
+#promo-tag-cloud li a {
+    display: inline-block;
+    padding: 0 5px;
+    background-color: #F2F2F2;
+}
+
+#promo-tag-cloud li a span {
+    background-color: #FF6E00;
+    color: white;
+    padding: 0 5px;
+}

@@ -24,14 +24,7 @@ Version: 1.0.0
          url('fonts/Shock_Icons.woff') format('woff'),
          url('fonts/Shock_Icons.ttf') format('truetype'),
          url('fonts/Shock_Icons.svg#shock_icons') format('svg');
-    
-    /*font-family: 'shock_icon_communications';
-    src: url('fonts/Shock_icon_communications.eot');
-    src: url('fonts/Shock_icon_communications.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Shock_icon_communications.woff') format('woff'),
-         url('fonts/Shock_icon_communications.ttf') format('truetype'),
-         url('fonts/Shock_icon_communications.svg#shock_icon_communications') format('svg');*/
-    
+       
     font-weight: normal;
     font-style: normal;
 }
@@ -167,6 +160,7 @@ hgroup,
 ***************** MAIN NAVIGATION *******************/
 
 .main-navigation { 
+    width: 100%;
     margin-top: 0;
     z-index: 500;
     text-align: left;
@@ -757,14 +751,58 @@ body.woocommerce-page span.onsale {
     padding: 14px 0;
 }
 
+.my-cart {
+    float: right;
+    margin-top: 1rem;
+    margin-top: 14px;
+}
+
+.main-navigation .cart-contents:before {
+    content: "K";
+    font-family: 'shock_icons', Fallback, sans-serif;
+    display: inline;
+    font-style: normal;
+    margin-right: 7px;
+    font-size: 1.5rem;
+    text-decoration: inherit;
+}
+
+.main-navigation .cart-contents {
+    display: inline-block;
+    text-decoration: none;
+    color: #F1F1E6;
+    font-weight: bold;
+}
+
+.main-navigation .cart-contents:hover {
+    color: #BBB;
+}
+
+.main-navigation .cart-contents:active {
+    color: #635e5d;
+}
+
 /* Overwrite Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
-    .site-wrap {
-	margin: 0 auto;
-	width: 987px;  /*-- ( 1024px - 17px - 20px ) --*/
-	width: 70.5rem;
+    body {
+        margin: 0 auto;
+	min-width: 987px;  /*-- ( 1024px - 17px - 20px ) --*/
+	min-width: 70.5rem;
+    }
+    
+    body .site-wrap,
+    .site-header > .site-wrap {
         padding: 0 10px;
         padding: 0 0.7142857143rem;
+    }
+    
+    #phone {
+        right: 10px;
+    }
+    
+    .site-header > .site-wrap {
+        padding-top: 24px;
+        padding-top: 1.7142857143rem;
     }
     
     #product-categories {
@@ -833,11 +871,24 @@ body.woocommerce-page span.onsale {
 
 /*----- Media screen 1152px - 17px (vertical scroll width) ---- */
 @media screen and (min-width: 1135px) {
-    body .site-wrap {
-        width: 1117px;  /*-- ( 1135px - 18px ) --*/
-        width: 79.78571428571rem;
+    body {
+        min-width: 1117px;  /*-- ( 1135px - 18px ) --*/
+        min-width: 79.78571428571rem;
+    }
+    
+    body .site-wrap,
+    .site-header > .site-wrap {
         padding: 0 9px;
         padding: 0 0.642857143rem;
+    }
+    
+    #phone {
+        right: 9px;
+    }
+    
+    .site-header > .site-wrap {
+        padding-top: 24px;
+        padding-top: 1.7142857143rem;
     }
        
     #product-categories {
@@ -874,11 +925,24 @@ body.woocommerce-page span.onsale {
 
 /*---- ( 1280px - 17px ) ----*/
 @media screen and (min-width: 1263px) {
-    body .site-wrap {
-        width: 1247px;  /*-- ( 1263px - 16px ) --*/
-        width: 89.07142857143rem;
+    body {
+        min-width: 1247px;  /*-- ( 1263px - 16px ) --*/
+        min-width: 89.07142857143rem;
+    }
+    
+    body .site-wrap,
+    .site-header > .site-wrap {
         padding: 0 8px;
         padding: 0 0.571428571rem;
+    }
+    
+    #phone {
+        right: 8px;
+    }
+    
+    .site-header > .site-wrap {
+        padding-top: 24px;
+        padding-top: 1.7142857143rem;
     }
       
     #product-categories {
@@ -935,8 +999,21 @@ body.woocommerce-page span.onsale {
     body .site-wrap {
         width: 1301px;  /*-- ( 1349px - 48px ) --*/
         width: 92.9285714286rem;
+    }
+    
+    body .site-wrap,
+    .site-header > .site-wrap {
         padding: 0 24px;
         padding: 0 1.7142857143rem;
+    }
+    
+    #phone {
+        right: 24px;
+    }
+    
+    .site-header > .site-wrap {
+        padding-top: 24px;
+        padding-top: 1.7142857143rem;
     }
     
     #product-categories {

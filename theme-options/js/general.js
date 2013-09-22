@@ -44,6 +44,23 @@ jQuery(document).ready(function($){
             $('#favicon-delete').hide();
         }
     });
+    
+    /******************************** BANNER ********************************/
+    $('#upload-banner-button').click(function(){
+        $('#media-caller').val('upload-banner-button');
+        tb_show('Upload Home Banner', 'media-upload.php?referer=jrl-theme-settings&amp;type=image&amp;TB_iframe=true&amp;post_id=0', false);
+        return false;
+    });
+    
+    $('#delete-banner-button').click(function(){
+        var yesno = confirm('Anda yakin akan menghapus banner ini?');
+        if( yesno ) {
+            $('#home-banner').val('');
+            $('#banner-preview img').hide();
+            $('.description', '#banner-preview').show();
+            $('#banner-delete').hide();
+        }
+    });
 });
 
 

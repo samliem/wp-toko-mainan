@@ -66,11 +66,20 @@ function jrl_back_to_top() { ?>
 <?php } 
 add_action('jrl_before_header', 'jrl_back_to_top');
 
+/*************************************************************
+********************** Pure Chat Script *********************/
+
+/**
+ * Add Pure Chat option page in Setting menu
+ */
 function pure_chat_script_option_page() {
     add_options_page( 'Add Pure Chat Script', 'Pure Chat Script', 'manage_options', 'pure_chat_option', 'add_pure_chat_script' );
 }
 add_action( 'admin_menu', 'pure_chat_script_option_page' );
 
+/**
+ * Pure Chat option page setting
+ */
 function add_pure_chat_script() { 
     if( !current_user_can('manage_options') ) 
         wp_die( 'You do not have sufficient permissions to access this page!' ); ?>
@@ -91,21 +100,15 @@ function add_pure_chat_script() {
     </div>
 <?php }
 
+/**
+ * Register pure_chat_script option
+ */
 function pure_chat_opt_init() {
     register_setting( 'pure_chat_script', 'pure_chat_script' );
     //add_settings_section( 'pure_chat_section', 'Pure Chat Setting', 'setting_text_section', 'pure_chat_option' );
     //add_settings_field( 'pure-chat-script-field', 'Script', 'setting_input', 'pure_chat_option', 'pure_chat_section' );
 }
 add_action( 'admin_init', 'pure_chat_opt_init' );
-
-function setting_text_section() {
-    echo '<p>Enter the script here</p>';
-}
-
-function setting_input() {
-    $script = get_option( 'pure_chat_script', true );
-    echo '<textarea id="pure_chat_input" name="pure_chat_script" value="' . $script . '"></textarea>';
-}
 
 /**
  * Insert script of Pure Chat
@@ -470,8 +473,6 @@ function jrl_register_promo_post_type() {
                                    )
         ));
     
-    $wp_rewrite->flush_rules();
-
     $tax_tag_label = 
         array(
             'name'              => __( 'Promotion Tags', 'twentytwelve' ),
@@ -502,6 +503,7 @@ function jrl_register_promo_post_type() {
         )
     ));
 
+    $wp_rewrite->flush_rules();
 }
 add_action( 'init', 'jrl_register_promo_post_type' );
 
@@ -526,11 +528,12 @@ function jrl_custom_widget() {
     wp_enqueue_style('widget-style', get_stylesheet_directory_uri() . '/widgets/css/widget.css');
         
     //require_once "widgets/ym.php";
-    require_once "widgets/promo-banner.php";
-    require_once "widgets/recent-promo.php";
-    require_once "widgets/promo-categories.php";
-    require_once "widgets/post-promo-categories.php";
-    require_once "widgets/store-info.php";
+    include_once "widgets/promo-banner.php";
+    include_once "widgets/recent-promo.php";
+    include_once "widgets/promo-categories.php";
+    include_once "widgets/post-promo-categories.php";
+    include_once "widgets/store-info.php";
+    include_once "widgets/promo-tag-cloud.php";
         
     //register_widget('jrl_YM_Widget');
     register_widget('jrl_Banner_Promo');
@@ -538,6 +541,7 @@ function jrl_custom_widget() {
     register_widget('jrl_Promo_Categories');
     register_widget('jrl_Post_Promo_Categories');
     register_widget('jrl_Store_Info');
+    register_widget('jrl_Promotion_Tag_Cloud');
 }
 add_action('widgets_init', 'jrl_custom_widget');
 

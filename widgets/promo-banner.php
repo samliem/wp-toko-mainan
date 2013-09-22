@@ -7,7 +7,7 @@ class jrl_Banner_Promo extends WP_Widget {
                 'classname'=> 'jrl-banner-promo',
                 'description'=> 'Widget Untuk Memasang Banner Promosi'
             );
-        $this->WP_Widget('jrl-banner-promo-widget', 'Banner Promosi', $widget_ops);
+        $this->WP_Widget('jrl-banner-promo-widget', __( 'Promotion Banner', 'twentytwelve' ), $widget_ops);
     }
     
     function form($instance) {
@@ -15,7 +15,7 @@ class jrl_Banner_Promo extends WP_Widget {
         $post_id = $instance['post_id']; ?>
         
         <p>
-            <label for="widget-title">Judul Widget</label>
+            <label for="widget-title"><?php _e( 'Title', 'twentytwelve' ); ?></label>
             <input type="text" class="widefat" id="widget-title"
                    name="<?php echo $this->get_field_name('title'); ?>"
                    value="<?php echo $title; ?>" />

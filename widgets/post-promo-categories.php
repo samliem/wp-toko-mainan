@@ -7,22 +7,21 @@ class jrl_Post_Promo_Categories extends WP_Widget {
                     'classname'     => 'post-promo-categories',
                     'description'   => 'Menampilkan Promosi Dalam Kategori yang Dipilih'
                 );
-        $this->WP_Widget('post-promo-categories', 'Promosi Berdasarkan Kategori', $widget_ops);
+        $this->WP_Widget('post-promo-categories', __( 'Promotion Based On Category', 'twentytwelve' ), $widget_ops);
     }
     
     function form($instance) {
         $instance = (array)$instance;
-        if( empty($instance['title']) ) $instance['title'] = 'Daftar Kategori';
+        if( empty($instance['title']) ) $instance['title'] = __( 'Promotions of Category', 'twentytwelve' );
         $selected_categories = $instance['category']; ?>
         <p>
-            Title
-            <input type="text" name="<?php echo $this->get_field_name('title'); ?>"
+            <label for="widget-title"><?php _e( 'Title', 'twentytwelve'); ?></label>
+            <input type="text" id="widget-title" name="<?php echo $this->get_field_name('title'); ?>"
                    value="<?php echo $instance['title']; ?>" class="widefat" />
         </p>
         <p>
             <?php
                 $categories = get_terms('promo_cat');
-                //var_dump($categories);
                 foreach($categories as $category) : ?>
                     <div>
                         <input type="checkbox" name="<?php echo $this->get_field_name('category') . '[]'; ?>"

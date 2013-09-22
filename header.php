@@ -88,19 +88,24 @@
 		<h3 class="menu-toggle"><?php _e( 'Menu', 'twentytwelve' ); ?></h3>
 		<a class="assistive-text" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentytwelve' ); ?>"><?php _e( 'Skip to content', 'twentytwelve' ); ?></a>
                 <div class="site-wrap">
+                    <div class="my-cart">
+                        <?php global $woocommerce; ?>
+                        <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+                    </div>
                     <div class="site-title">
                         <?php echo $new_title; ?>
                     </div>
                     <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+                    <div class="clear"></div>
                 </div><!-- .site-wrap -->
             </nav><!-- #site-navigation -->
 
         </header><!-- #masthead -->
         
-        <?php if( is_front_page() ) : ?>
+        <?php if( is_front_page() && $jrl_theme_options['banner'] ) : ?>
             <div id="ad-banner-container">
                 <div id="ad-banner">
-                    <img src="<?php echo get_stylesheet_directory_uri(). '/images/728x90.gif'; ?>" >
+                    <img src="<?php echo $jrl_theme_options['banner']; ?>" >
                 </div>
             </div>
         <?php endif; ?>
@@ -130,7 +135,7 @@
                             printf( __( 'Product Tag : %s', 'woocommerce' ), '<span>' . $queried_object->name . '</span>' );
                             break;
                         case 'promo_cat':
-                            printf( __( 'Promotion Category %s: ', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
+                            printf( __( 'Promotion Category : %s ', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );
                             break;
                         case 'promo_tag':
                             printf( __( 'Promotion Tag : %s', 'twentytwelve' ), '<span>' . $queried_object->name . '</span>' );

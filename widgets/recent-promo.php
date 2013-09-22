@@ -7,12 +7,12 @@ class jrl_Recent_Promo extends WP_Widget {
                     'class'         => 'jrl-recent-promo',
                     'description'   => 'Widget ini digunakan untuk menampilkan promo-promo terbaru',
                 );
-        $this->WP_Widget('jrl-recent-promo-widget', 'Promo Terbaru', $widget_ops);
+        $this->WP_Widget('jrl-recent-promo-widget', __( 'Recent Promotions', 'twentytwelve' ), $widget_ops);
     }
     
     function form($instance) {
         $default = array(
-                    'title'     => 'Promosi Terbaru',
+                    'title'     => __( 'Recent Promotions', 'twentytwelve' ),
                     'max_posts' => 5
                 );
         $instance = wp_parse_args($instance, $default);
@@ -20,7 +20,7 @@ class jrl_Recent_Promo extends WP_Widget {
         $max_posts = $instance['max_posts']; ?>
         
         <p>
-            <label for="widget-title">Title </label>
+            <label for="widget-title"><?php _e( 'Title', 'twentytwelve' ); ?></label>
             <input id="widget-title" class="widefat"
                 name="<?php echo $this->get_field_name('title'); ?>"
                 value="<?php echo $title; ?>" />

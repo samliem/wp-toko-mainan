@@ -7,16 +7,16 @@ class jrl_Promo_Categories extends WP_Widget {
             'classname'     => 'jrl-promo-categories',
             'description'   => 'Widget ini digunakan untuk menampilkan daftar kategori promosi'
         );
-        $this->WP_Widget('jrl-promo-categories', 'Daftar Kategori Promosi', $widget_ops);
+        $this->WP_Widget('jrl-promo-categories', __( 'Promotion Categories', 'twentytwelve' ), $widget_ops);
     }
     
     function form($instance) {
-        $defaults = array('title' => 'Daftar Kategori Promosi');
+        $defaults = array('title' => __( 'Promotion Categories', 'twentytwelve' ) );
         $instance = wp_parse_args($instance, $defaults); 
         $title = $instance['title']; ?>
         
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?> ">Title</label>
+            <label for="<?php echo $this->get_field_id('title'); ?> "><?php _e( 'Title', 'twentytwelve' ); ?></label>
             <input type="text" id="<?php echo $this->get_field_id('title'); ?>"
                    name="<?php echo $this->get_field_name('title'); ?>"
                    value="<?php echo $title; ?>" class="widefat" />

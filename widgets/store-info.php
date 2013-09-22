@@ -12,7 +12,7 @@ class Jrl_Store_Info extends WP_Widget {
                 'class'         => 'store-info',
                 'description'   => 'Widget ini digunakan untuk menampilkan informasi toko'
             );
-        $this->WP_Widget( 'store-info-widget', 'Store Information', $widget_ops );
+        $this->WP_Widget( 'store-info-widget', __( 'Store Information', 'twentytwelve' ), $widget_ops );
     }
     
     function form($instance) {
@@ -21,8 +21,8 @@ class Jrl_Store_Info extends WP_Widget {
         $title = $instance['title']; ?>
         
         <p>
-            <label for="title">Title</label>
-            <input id="title" class="widefat" value="<?php echo $title; ?>"
+            <label for="widget-title"><?php _e( 'Title', 'twentytwelve' ); ?></label>
+            <input id="widget-title" class="widefat" value="<?php echo $title; ?>"
                 name="<?php echo $this->get_field_name('title'); ?>" >
         </p>
         

@@ -19,6 +19,13 @@ jQuery(document).ready(function($){
                 $('.description', '#favicon-preview').hide();
                 $('#favicon-delete').show();
             }
+            
+            if( caller == 'upload-banner-button' ) {
+                $('#home-banner').val(image_url);
+                $('#banner-preview img').attr('src', image_url).show();
+                $('.description', '#banner-preview').hide();
+                $('#banner-delete').show();
+            } 
         } else {
             $('#' +caller).val(image_url);
             var slideNo = caller.split('_');
