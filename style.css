@@ -668,8 +668,8 @@ body.woocommerce-page ul.products li.product {
     width: auto;    /* replace parent's setting */
     display: inline-block;
     vertical-align: top;
-    min-height: 280px;
-    min-height: 20rem;
+    min-height: 308px;
+    min-height: 22rem;
     padding: 7px 7px 0;
     padding: .5rem .5rem 0;
     border: 2px solid #EEE;
