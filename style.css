@@ -719,11 +719,6 @@ body.woocommerce-page .woocommerce-ordering {
     background: #EEE url(images/bg-gray.png);
 }
 
-body.woocommerce span.onsale, 
-body.woocommerce-page span.onsale {
-    background: #DC4B4B;
-}
-
 .price ins .amount,
 .price .amount,
 .product_list_widget .amount {
