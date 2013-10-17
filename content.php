@@ -26,13 +26,25 @@
 
 		<?php if ( is_search() ) : // Only display Excerpts for Search ?>
 		<div class="entry-summary">
-			<?php the_excerpt(); ?>
+                    <?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 		<?php else : ?>
 		<div class="entry-content">
-                        <?php the_post_thumbnail('thumbnail'); ?>
-			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
-			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
+                    <?php the_post_thumbnail('thumbnail'); ?>
+                    <?php if( is_archive() || is_category() || is_home() ) {
+                        global $jrl_theme_options;
+                        $post_content = $jrl_theme_options['post_content'];
+                        if( 'excerpt' == $post_content ) {
+                            the_excerpt();
+                        } else {
+                            the_content();
+                        }
+                    } else {
+                        the_content();
+                    }
+?>
+			<?php //the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentytwelve' ) ); ?>
+                    <?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'twentytwelve' ), 'after' => '</div>' ) ); ?>
 		</div><!-- .entry-content -->
 		<?php endif; ?>
 

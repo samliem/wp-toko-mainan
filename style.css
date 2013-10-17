@@ -417,6 +417,19 @@ h3.entry-title {
     margin-bottom: 0;
 }
 
+.more-section a {
+    text-decoration: none;
+    color: #21759B;
+}
+
+.more-section a:visited {
+    color: #21759B;
+}
+
+.more-section a:hover {
+    color: #333;
+}
+
 /***************************************************************
 ********************* THUMBNAIL LIGHTBOX **********************/
 #mask {
