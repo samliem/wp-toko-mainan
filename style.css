@@ -178,6 +178,12 @@ hgroup,
     font-size: 1.8rem;
 }
 
+.main-navigation .site-wrap .site-title img {
+    height: 30px;
+    width: auto;
+    vertical-align: bottom;
+}
+
 .main-navigation .site-title span {
     color: #f1f1f1;
 }

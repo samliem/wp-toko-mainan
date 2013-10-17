@@ -18,7 +18,10 @@ jQuery(document).ready(function($){
             $('#back-to-top').fadeIn('slow');
         
         if( $(this).scrollTop() > topNav ) {
-            $('.main-navigation').css({'position' : 'fixed', 'top' : 0, 'left' : 0, 'margin-top' : 0 });
+            var wpAdminBar = $('#wpadminbar').height();
+            var fixedNavTop = wpAdminBar != null ? wpAdminBar : 0;
+            console.debug(wpAdminBar);
+            $('.main-navigation').css({'position' : 'fixed', 'top' : fixedNavTop, 'left' : 0, 'margin-top' : 0 });
             $('.main-navigation .site-title').css('display', 'inline-block');
         }
         else {
