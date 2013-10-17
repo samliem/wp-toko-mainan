@@ -43,6 +43,9 @@ class Jrl_Store_Info extends WP_Widget {
         
         $jrl_theme_options = get_option( 'jrl_theme_options' );
         
+        if( !empty($jrl_theme_options['store']) ) 
+            echo '<div>' . $jrl_theme_options['store'] . '</div>';
+        
         if( !empty($jrl_theme_options['address1']) ) 
             echo '<div>' . $jrl_theme_options['address1'] . '</div>';
                     
