@@ -1,0 +1,46 @@
+/* 
+    Document   : pagination
+    Created on : May 3, 2013, 10:55:31 AM
+    Author     : Samuel
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#nav-below.navigation {
+    width: 100%;
+    text-align: center;
+}
+
+#nav-below.navigation a {
+    /*display: inline-block;*/
+    margin: 2px;
+    padding: 0.5em 0.64em 0.43em 0.64em;
+}
+
+#nav-below.navigation a:hover,
+#nav-below.navigation a:active {
+    padding: 0.5em 0.64em 0.43em 0.64em;
+    margin: 2px;
+}
+
+#nav-below .current {
+    padding: 0.5em 0.64em 0.43em 0.64em;
+    margin: 2px;
+}
+
+#nav-below.navigation a {
+    text-decoration: none;
+    background-color: #ee4e4e;
+    color: #FFF;
+}
+
+#nav-below.navigation a:hover,
+#nav-below.navigation a:active {
+    background-color: #de1818;
+    color: #fff;
+}
+
+#nav-below .current {
+    background-color: #f6efcc;
+    color: #6d643c;
+}
